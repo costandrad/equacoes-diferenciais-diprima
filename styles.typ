@@ -1,4 +1,6 @@
-#let primary-color = rgb("#f00024")
+#import "@preview/lilaq:0.4.0" as lq
+
+#let primary-color = rgb("#224790")
 
 #let fmt(number, precision: 3,  sci: true) = {
   if number == 0 {
@@ -49,10 +51,10 @@
   )
 
   #upper[
-    #text(size: 16pt, weight: 500)[Resolução Comentada dos Exercícios de]\
-    #text(size: 32pt, weight: 700, fill: primary-color)[#book-title]\
-    #text(size: 16pt, weight: 500)[de]\
-    #text(size: 24pt, weight: 700, fill: primary-color)[#book-author]
+    #text(size: 14pt, weight: 500)[Resolução Comentada dos Exercícios de]\
+    #text(size: 18pt, weight: 700, fill: primary-color)[#book-title]\
+    #text(size: 14pt, weight: 500)[de]\
+    #text(size: 18pt, weight: 700, fill: primary-color)[#book-author]
   ]
 ]
 
@@ -74,7 +76,7 @@
       column-gutter: 15pt,
       align: (left+bottom, right+horizon),
       [
-        #cite(<Halliday2>, form: "full")
+        #cite(<diprima>, form: "full")
       ],
       [
         #image("assets/images/capa.png", width: 3cm)
@@ -170,6 +172,9 @@
 
   set heading(numbering: "1.1.")
 
+  set figure.caption(position: top)
+  show figure.caption: set text(size: 10pt)
+
   mkcover(book.title, book.author.long, author, primary-color)
 
   counter(page).update(1)
@@ -180,8 +185,11 @@
   pagebreak()
 
 
+
+
   set page(
     header: context {
+      set text(size: 10pt)
       let current-page = counter(page).get().at(0)
       rect(width: 100%, stroke: (bottom: (thickness: 1pt, paint: primary-color)))[
         #if calc.even(current-page) [
@@ -196,6 +204,7 @@
       ]
     },
     footer: context {
+      set text(size: 10pt)
       let current-page = counter(page).get().at(0)
       rect(width: 100%, stroke: (top: (thickness: 1pt, paint: primary-color)))[
         #if calc.even(current-page) {
@@ -226,16 +235,12 @@
   show heading: set text(size: 12pt, fill: primary-color)
   show heading.where(): it => custom-headings(it)
   set list(marker: text(primary-color)[-])
-    set enum(
+
+  set enum(
     numbering: it => context {
       let headings = counter(heading).get()
       let sec = headings.at(0)
-      if headings.len() > 1 {
-        let subsec = headings.at(1)
-        strong(text(primary-color)[#sec.#subsec.#it.])
-      } else {
-        strong(text(primary-color)[#sec.#it.])
-      }
+      strong(text(primary-color)[#it.])
   })
 
   

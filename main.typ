@@ -2,10 +2,10 @@
 
 #show: template.with(
   book: (
-    title: [Título do Livro],
+    title: [Equações Diferenciais Elementares e Problemas de Valores de Contorno],
     author: (
-      long: [Nome Sobrenome],
-      short: [Sobrenome, N.]
+      long: [W. E. Boyce, R. C. Diprima & D. B. Meade],
+      short: [Boyce, W. E.; Diprima, R. C.; Meade, D. B.]
     )
   ),
   author: [Igo da Costa Andrade]
