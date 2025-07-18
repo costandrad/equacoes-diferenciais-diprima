@@ -2,7 +2,7 @@
 
 #show: template.with(
   book: (
-    title: [Equações Diferenciais Elementares e Problemas de Valores de Contorno],
+    title: [Equações Diferenciais Elementares],
     author: (
       long: [W. E. Boyce, R. C. Diprima & D. B. Meade],
       short: [Boyce, W. E.; Diprima, R. C.; Meade, D. B.]
