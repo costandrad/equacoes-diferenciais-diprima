@@ -138,3 +138,26 @@
       y^prime = 2y - 1
     $
   ])
+
+#par(first-line-indent: 0pt)[Em cada um dos problemas 7 a 10, desenhe um campo de direções para a equação diferencial dada. Baseado no campo de direções, determine o comportamento de $y$ quando $t arrow infinity$. Se esse comportamento depender do valor inicial de $y$ em $t = 0$, descreva essa dependência. Note que, nesses problemas, as equações diferenciais não são da forma $y^prime = a y + b$, e o comportamento de duas soluções é um pouco mais complicado do que o das soluções das equações do texto.]
+
+#set enum(start: 7)
++  $y^prime = y (4 - y)$
+
+  #solution([
+    #figure(
+      caption: [Campo de direções da equação $y^prime = y (4 - y)$],
+      lq.diagram(
+        width: 10cm, height: 8cm, xlabel: $t$, ylabel: $y$,
+        lq.quiver(
+          lq.arange(0, 5, step: 0.6),
+          lq.arange(-3, 7.5, step: .6),
+          scale: 0.4, 
+          (x, y) => (1/calc.sqrt(1+calc.pow(y * (4 - y), 2)), y * (4 - y)/calc.sqrt(1+calc.pow(y * (4 - y), 2))),
+          color: primary-color, stroke: (thickness: 1.2pt)
+        ),
+        lq.line((0%, 0), (100%, 0), stroke: (thickness: 1pt, paint: red), label: $y = 0$),
+        lq.line((0%, 4), (100%, 4), stroke: (thickness: 1pt, paint: blue), label: $y = 4$),
+      )
+    )
+  ])
